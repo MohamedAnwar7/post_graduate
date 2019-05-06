@@ -60,6 +60,10 @@
                             if (username.equals(i.getString("id"))
                                     && request.getParameter("password").equals(i.getString("password"))) {
                                 obj.setDept(i.getString("department"));
+                                obj.setStatus(i.getString("status"));
+                                obj.setNational_id(i.getString("national_id"));
+                                System.out.print(obj.getStatus()+" in sign in imp");
+                                System.out.print(obj.getNational_id()+" in sign in imp");
                                 response.sendRedirect("student_home.jsp");
                             }
                         }

@@ -17,13 +17,13 @@
 
 <!DOCTYPE html>
 <html>
-        <% request.setCharacterEncoding("utf-8"); %>
+    <% request.setCharacterEncoding("utf-8"); %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
-        <%  
+        <%
             try {
                 connectionDB c = new connectionDB();
                 Connection con = c.getConnection();
@@ -32,19 +32,23 @@
                 ResultSet rs = ps.executeQuery();
                 int count = 1;
                 while (rs.next()) {
-                        PreparedStatement p = con.prepareStatement(" UPDATE faculty.master SET status = ? WHERE national_id = ? ;");
-                        String s = Integer.toString(count);
-                        String cc = request.getParameter(s);
-                        if (!cc.equals("")) {
-                            p.setString(1, cc);
-                            p.setString(2, rs.getString("national_id"));
-                            p.executeUpdate();
-                        }
-                        out.print(s);
-                    
+                    PreparedStatement p = con.prepareStatement(" UPDATE faculty.master SET status = ? WHERE national_id = ? ;");
+                    String s = Integer.toString(count);
+                    String cc = request.getParameter(s);
+                    if (!cc.equals("")) {
+                        p.setString(1, cc);
+                        p.setString(2, rs.getString("national_id"));
+                        p.executeUpdate();
+                        System.out.println("added in master");
+
+                    }
                     count++;
-                    
                 }
+                PreparedStatement pp = con.prepareStatement(" UPDATE student,master SET "
+                        + "student.status = master.status WHERE student.national_id = master.national_id;");
+                pp.executeUpdate();
+                System.out.println("status is done");
+
                 response.sendRedirect("staff_home.jsp");
             } catch (SQLException ex) {
                 System.out.println("eroor");

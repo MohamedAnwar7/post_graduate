@@ -45,6 +45,11 @@
                     
                     count++;
                 }
+                PreparedStatement pp = con.prepareStatement(" UPDATE student,diploma SET "
+                        + "student.status = diploma.status WHERE student.national_id = diploma.national_id;");
+                pp.executeUpdate();
+                System.out.println("status is done");
+                
                 response.sendRedirect("staff_home.jsp");
             } catch (SQLException ex) {
                 System.out.println("eroor");

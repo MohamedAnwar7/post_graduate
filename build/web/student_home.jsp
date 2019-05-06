@@ -32,128 +32,129 @@
 
 
         <body id="page-top">
-        <%
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM");
-            LocalDateTime now = LocalDateTime.now();
-            System.out.println(dtf.format(now));
-            out.println(dtf.format(now));
 
-            if (dtf.format(now).equals("7") || dtf.format(now).equals("8") || dtf.format(now).equals("9")) {
 
-            }
-        %>
+            <nav class="navbar navbar-expand  static-top">
 
-        <nav class="navbar navbar-expand  static-top">
+                <a class="navbar-brand mr-1" href="student_home.jsp">القائمة</a>
 
-            <a class="navbar-brand mr-1" href="student_home.jsp">القائمة</a>
+                <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-            <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <!-- Navbar Search -->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="البحث عن.." aria-label="Search"
-                           aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fas fa-search"></i>
-                        </button>
+                <!-- Navbar Search -->
+                <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="البحث عن.." aria-label="Search"
+                               aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
-            <!-- Navbar -->
-            <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown no-arrow mx-1">
-                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell fa-fw"></i>
-                        <span class="badge badge-danger">9+</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown no-arrow mx-1">
-                    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-envelope fa-fw"></i>
-                        <span class="badge badge-danger">7</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle fa-fw"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="settings_page.jsp">الاعدادات</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">تسجيل الخروج</a>
-                    </div>
-                </li>
-            </ul>
+                <!-- Navbar -->
+                <ul class="navbar-nav ml-auto ml-md-0">
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <span class="badge badge-danger">9+</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-envelope fa-fw"></i>
+                            <span class="badge badge-danger">7</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-circle fa-fw"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="settings_page.jsp">الاعدادات</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">تسجيل الخروج</a>
+                        </div>
+                    </li>
+                </ul>
 
-        </nav>
+            </nav>
 
-        <div id="wrapper">
+            <div id="wrapper">
 
-            <!-- Sidebar -->
-            <ul class="sidebar navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="student_home.jsp">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>لوحة التحكم</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="available_course.jsp">
-                        <i class="far fa-plus-square"></i>
-                        <span>اختيار مقررات</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="current_course.jsp">
-                        <i class="far fa-plus-square"></i>
-                        <span>عرض المقررات</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="previous_course.jsp">
-                        <i class="far fa-plus-square"></i>
-                        <span>عرض المقررات السابقة</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="redo_course.jsp">
-                        <i class="far fa-plus-square"></i>
-                        <span>عرض مقررات الدور الثاني</span></a>
-                </li>
+                <!-- Sidebar -->
+                <ul class="sidebar navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="student_home.jsp">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="available_course.jsp">
+                            <i class="far fa-plus-square"></i>
+                            <span>اختيار مقررات</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="current_course.jsp">
+                            <i class="far fa-plus-square"></i>
+                            <span>عرض المقررات</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="previous_course.jsp">
+                            <i class="far fa-plus-square"></i>
+                            <span>عرض المقررات السابقة</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="redo_course.jsp">
+                            <i class="far fa-plus-square"></i>
+                            <span>عرض مقررات الدور الثاني</span></a>
+                    </li>
 
 
-            </ul>
+                </ul>
 
-            <div id="content-wrapper">
+                <div id="content-wrapper">
 
-                <div class="container-fluid">
+                    <div class="container-fluid">
 
-                    <!-- Breadcrumbs-->
-                    <ol class="breadcrumb bg-white">
-                        <li class="breadcrumb-item">
-                            <a href="student_home.jsp">لوحة التحكم</a>
-                        </li>
-                        <li class="breadcrumb-item active">نبذه عامة</li>
-                    </ol>
+                        <!-- Breadcrumbs-->
+                        <ol class="breadcrumb bg-white">
+                            <li class="breadcrumb-item">
+                                <a href="student_home.jsp">لوحة التحكم</a>
+                            </li>
+                            <li class="breadcrumb-item active">نبذه عامة</li>
+                        </ol>
 
-                    <!-- Icon Cards-->
+                        <!-- Icon Cards-->
+                    <%
+                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM");
+                        LocalDateTime now = LocalDateTime.now();
+                        System.out.println(obj.getStatus() + "  status");
+                        System.out.println(obj.getNational_id() + "  00");
+
+                        if (dtf.format(now).equals("05") || dtf.format(now).equals("10")) {
+                            if (obj.getStatus().equals("مطابق للشروط")) {
+
+                    %>
                     <div class="row">
                         <div class="col-xl-3 col-sm-6 mb-3">
                             <div class="card text-white badge-danger noradius o-hidden h-100">
@@ -190,6 +191,14 @@
                             </div>
                         </div>
                     </div>
+
+                    <%} else {
+                                System.out.print("not accepted");
+                            }
+                        } else {
+                            System.out.print("closed");
+                        }%>
+
 
                     <div class="row">
                         <div class="col-xl-3 col-sm-6 mb-3">
