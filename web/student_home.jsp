@@ -1,3 +1,5 @@
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="obj" scope="session" class="folder.Data"></jsp:useBean>
     <!DOCTYPE html>
@@ -30,9 +32,16 @@
 
 
         <body id="page-top">
-
         <%
-            System.out.print("student >> " + obj.getDept());%>
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM");
+            LocalDateTime now = LocalDateTime.now();
+            System.out.println(dtf.format(now));
+            out.println(dtf.format(now));
+
+            if (dtf.format(now).equals("7") || dtf.format(now).equals("8") || dtf.format(now).equals("9")) {
+
+            }
+        %>
 
         <nav class="navbar navbar-expand  static-top">
 

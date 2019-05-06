@@ -28,19 +28,23 @@
         String telephone = request.getParameter("telephone");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String degree_type = request.getParameter("degree_type");
+        String department = request.getParameter("department");
         try {
             connectionDB c = new connectionDB();
             Connection con = c.getConnection();
-            PreparedStatement p = con.prepareStatement(" insert into faculty.user values "
-                    + "(?,?,?,?,?,?,?,?);");
+            PreparedStatement p = con.prepareStatement(" insert into faculty.student values "
+                    + "(?,?,?,?,?,?,?,?,?,?);");
             p.setString(1, username);
             p.setString(2, first_name);
             p.setString(3, last_name);
-            p.setString(4, dob);
-            p.setString(5, national_id);
-            p.setString(6, telephone);
-            p.setString(7, email);
-            p.setString(8, password);
+            p.setString(4, degree_type);
+            p.setString(5, department);
+            p.setString(6, dob);
+            p.setString(7, national_id);
+            p.setString(8, telephone);
+            p.setString(9, email);
+            p.setString(10, password);
             p.executeUpdate();
             System.out.println("DATA IS ENTERED TO USER TABLE!");
             response.sendRedirect("student_home.jsp");

@@ -143,7 +143,7 @@
                         <div class="card">
                             <div class="card-header">تسجيل</div>
                             <div class="card-body">
-                                <form name="my-form" id="my-form" action="../dr_acc.jsp" method="post">
+                                <form name="my-form" id="my-form" action="dr_acc.jsp" method="post">
                                     <div class="form-group row">
                                         <label  class="col-md-4 col-form-label text-md-right">اسم
                                             المستخدم</label>

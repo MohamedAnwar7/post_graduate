@@ -1,4 +1,5 @@
-    
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="java.util.logging.Logger"%>
 <%@page import="java.util.logging.Level"%>
 <%@page import="java.sql.ResultSet"%>
@@ -165,16 +166,24 @@
                                             </tr>
                                         </thead>
                                         <%
-                                            try {
-                                                 connectionDB c = new connectionDB();
-                                                Connection con = c.getConnection();
-                                                String SQL = "SELECT course_code, course_name,num_hours FROM `course` WHERE course.stud_year='حاليا' AND course.department = '" + obj.getDept() + "'";
-                                                PreparedStatement ps = con.prepareStatement(SQL);
-                                                ResultSet rs = ps.executeQuery();
+                                            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM");
+                                            LocalDateTime now = LocalDateTime.now();
+                                            System.out.print(dtf.format(now)+"77777");
+
+                                            if (dtf.format(now).equals("05") || dtf.format(now).equals("02")) {
+
+                                                try {
+                                                    connectionDB c = new connectionDB();
+                                                    Connection con = c.getConnection();
+                                                    String SQL = "SELECT course_code, course_name,num_hours FROM `course` WHERE course.stud_year='حاليا' AND course.department = '" + obj.getDept() + "'";
+                                                    PreparedStatement ps = con.prepareStatement(SQL);
+                                                    ResultSet rs = ps.executeQuery();
+                                    
+                                                    
                                         %>
                                         <%!
                                             int counter = 0;
-                                                                                                                                                                                                                        %>  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        %>  
                                         <% while (rs.next()) {
                                                 counter++;
                                         %>
@@ -190,6 +199,9 @@
                                                 }
                                             } catch (ClassNotFoundException ex) {
                                                 Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                            }else{
+                                            System.out.print("ddss");
                                             }
                                         %> 
                                     </table>

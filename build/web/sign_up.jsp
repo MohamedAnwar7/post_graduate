@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <form class="row register-form" method="POST" action="staff_acc.jsp">
+                    <form class="row register-form" method="POST" action="sign_up_imp.jsp">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="id" placeholder="اسم المستخدم*"

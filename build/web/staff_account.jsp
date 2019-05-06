@@ -132,7 +132,7 @@
                     <!-- Breadcrumbs-->
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="./admin.jsp">لوحة التحكم</a>
+                            <a href="admin.jsp">لوحة التحكم</a>
                         </li>
                         <li class="breadcrumb-item active">انشاء حساب الموظف</li>
                     </ol>
@@ -144,7 +144,7 @@
                             <div class="card">
                                 <div class="card-header">تسجيل</div>
                                 <div class="card-body">
-                                    <form name="my-form" id="my-form" action="../staff_acc.jsp" method="post">
+                                    <form name="my-form" id="my-form" action="staff_acc.jsp" method="post">
                                         <div class="form-group row">
                                             <label  class="col-md-4 col-form-label text-md-right">اسم
                                                 المستخدم</label>
