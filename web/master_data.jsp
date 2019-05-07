@@ -205,13 +205,8 @@
                                             String SQL = "select * from faculty.master ";
                                             PreparedStatement ps = con.prepareStatement(SQL);
                                             ResultSet rs = ps.executeQuery();
-                                    %>
-                                    <%!
-                                        er  = 0;
 
-                                    %>  
-                                    <% while (rs.next()) {
-                                            counter++;
+                                     while (rs.next()) {
                                     %>
                                     <tbody>
                                         <tr>

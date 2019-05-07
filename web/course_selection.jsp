@@ -40,10 +40,7 @@
                     String s = Integer.toString(count);
                     String cc = request.getParameter(s);
                     if (cc != null) {
-                        if(cc.equals(rs.getString(1))){
-                        System.out.println(" courses is is is is  " + cc);
-                        }
-                        System.out.println(cc+"444444");
+                        
                         System.out.println(" courses is  " + rs.getString(1));
                         PreparedStatement p = con.prepareStatement(" insert into `student_course` (`student_id`, `course_code`, `start_date`, `end_date`) VALUES "
                                 + " (?,?,?,?) ");

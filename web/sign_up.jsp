@@ -65,12 +65,9 @@
                                 <input type="text" class="form-control" name="last_name" placeholder="اسم العائلة*"
                                     value="" />
                             </div>
+                            
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="كلمة المرور*"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" class="form-control" name="department"
+                                <input type="text" minlength="2" maxlength="10" class="form-control" name="department"
                                     placeholder="القسم*" value="" />
                             </div>
                         </div>
@@ -80,11 +77,11 @@
                                     value="" />
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="national_id" placeholder="رقم البطاقة*"
+                                <input type="text" class="form-control" minlength="14" maxlength="14" name="national_id" placeholder="رقم البطاقة*"
                                     value="" />
                             </div>
                             <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" class="form-control" name="telephone"
+                                <input type="text" minlength="11" maxlength="11" class="form-control" name="telephone"
                                     placeholder="رقم المحمول*" value="" />
                             </div>
                             <div class="form-group">
@@ -99,6 +96,10 @@
                                 <input type="date" class="form-control" name="dob" value="" />
                             </div>
                         </div>
+                        <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="كلمة المرور*"
+                                    value="" />
+                            </div>
                         <div class="col-md-6">
                             <input type="submit" name="submit" class="btnRegister" value="تسجيل" />
                         </div>

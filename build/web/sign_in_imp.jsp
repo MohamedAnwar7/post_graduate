@@ -27,10 +27,9 @@
         <body>
 
         <%
-            
-            obj.setId(request.getParameter("username"));
-            String username = obj.getId();
-            System.out.print(username);
+
+            String username = (request.getParameter("username"));
+            System.out.print(username + " is entered!");
             if (!username.isEmpty() && !request.getParameter("password").isEmpty()) {
                 try {
                     connectionDB c = new connectionDB();
@@ -41,6 +40,7 @@
                         while (i.next()) {
                             if (username.equals(i.getString("username"))
                                     && request.getParameter("password").equals(i.getString("password"))) {
+                                obj.setId(i.getString("username"));
                                 response.sendRedirect("staff_home.jsp");
                             }
                         }
@@ -50,6 +50,7 @@
                         while (i.next()) {
                             if (username.equals(i.getString("username"))
                                     && request.getParameter("password").equals(i.getString("password"))) {
+                                obj.setId(i.getString("username"));
                                 response.sendRedirect("doctor_home.jsp");
                             }
                         }
@@ -59,16 +60,24 @@
                         while (i.next()) {
                             if (username.equals(i.getString("id"))
                                     && request.getParameter("password").equals(i.getString("password"))) {
+                                obj.setId(i.getString("id"));
                                 obj.setDept(i.getString("department"));
+                                obj.setStatus(i.getString("status"));
+                                obj.setFirst_name(i.getString("first_name"));
+                                obj.setLast_name(i.getString("last_name"));
+                                obj.setEmail(i.getString("email"));
+                                obj.setPhone(i.getString("telephone"));
+                                obj.setPassword(i.getString("password"));
+                                obj.setNational_id(i.getString("national_id"));
                                 response.sendRedirect("student_home.jsp");
                             }
                         }
                     } else if (request.getParameter("x").equals("admin")) {
                         if (username.equals("admin") && request.getParameter("password").equals("admin")) {
-                            
+
                             response.sendRedirect("admin.jsp");
                         }
-                        
+
                     } else {
                         out.print("Invalid id or password!");
                     }

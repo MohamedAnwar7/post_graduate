@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
     <% request.setCharacterEncoding("utf-8"); 
-    System.out.print(obj.getDept());    %>
+   %>
     <head>
 
         <meta charset="utf-8">
@@ -171,7 +171,7 @@
                                     </thead>
                                     <%
                                         try {
-                                            System.out.println(obj.getId());
+                                           
                                             connectionDB cc = new connectionDB();
                                             Connection con = cc.getConnection();
 

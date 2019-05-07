@@ -220,11 +220,11 @@
                             %> 
                         </table>
                         
-                    </form>
 
                             </div>
                         <br>
                         <input type="submit" class="btn btn-primary" name="submit" value="ادخال" >
+                    </form>
 
                         </div>
                     </div>

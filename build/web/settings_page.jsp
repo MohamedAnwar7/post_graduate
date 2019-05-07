@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="obj" scope="session" class="folder.Data"></jsp:useBean>
+
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 
@@ -143,13 +145,25 @@
                                         <h5 class="mb-3">صفحة المستخدم</h5>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h6>نبذه عامه</h6>
+                                                <h6>الاسم</h6>
                                                 <p>
-                                                    دكتور قسم علوم حاسب
+                                                <% out.print(obj.getFirst_name()+" "+obj.getLast_name()); %>
                                                 </p>
-                                                <h6>المؤهلات</h6>
+                                                <h6>البريد الالكتروني</h6>
                                                 <p>
-                                                    دكتوراه في علوم الحاسب جامعة المنوفية
+                                                    <% out.print(obj.getEmail());%>
+                                                </p>
+                                                <h6>القسم</h6>
+                                                <p>
+                                                      <% out.print(obj.getDept());%>
+                                                </p>
+                                                <h6>رقم التيليفون</h6>
+                                                <p>
+                                                      <% out.print(obj.getPhone());%>
+                                                </p>
+                                                <h6>رقم البطاقة</h6>
+                                                <p>
+                                                      <% out.print(obj.getNational_id());%>
                                                 </p>
                                             </div>
                                             
@@ -157,24 +171,30 @@
                                         <!--/row-->
                                     </div>
                                     <div class="tab-pane" id="edit">
-                                        <form role="form">
+                                        <form action="update_user.jsp" method="post">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label form-control-label">اسم المستخدم</label>
+                                                <label class="col-lg-3 col-form-label form-control-label">التليفون</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="text" value="Jane" name="username">
+                                                    <input class="form-control" type="text" value="<%out.print(obj.getPhone());%>" name="telephone">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">البريد الالكتروني</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="email" name="email" value="email@gmail.com">
+                                                    <input class="form-control" type="email" name="email" value="<%out.print(obj.getEmail());%>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label form-control-label">كلمة المرور</label>
+                                                <div class="col-lg-9">
+                                                    <input class="form-control" type="text" value="<%out.print(obj.getPassword());%>" name="password">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                                 <div class="col-lg-9">
                                                     <input type="reset" class="btn btn-secondary" value="الغاء">
-                                                    <input type="button" class="btn btn-primary" value="حفظ">
+                                                    <input type="submit" class="btn btn-primary" value="حفظ">
                                                 </div>
                                             </div>
                                         </form>
@@ -182,7 +202,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4 order-lg-1 text-center">
-                                <img src=style/img/target.png" class="mx-auto img-fluid img-circle d-block" alt="avatar" width="100px" height="100px">
+                                <img src=style/img/avatar.png" class="mx-auto img-fluid img-circle d-block" alt="avatar" width="100px" height="100px">
                                 <h6 class="mt-2">تغير الصورة الشخصية</h6>
                                 <label class="custom-file">
                                     <input type="file" id="file" class="custom-file-input">

@@ -20,7 +20,8 @@
 
 <%
         request.setCharacterEncoding("utf-8");
-        String username = request.getParameter("username");
+        
+        String username = request.getParameter("id");
         String first_name = request.getParameter("first_name");
         String last_name = request.getParameter("last_name");
         String dob = request.getParameter("dob");
@@ -30,11 +31,13 @@
         String password = request.getParameter("password");
         String degree_type = request.getParameter("degree_type");
         String department = request.getParameter("department");
+        
         try {
             connectionDB c = new connectionDB();
             Connection con = c.getConnection();
-            PreparedStatement p = con.prepareStatement(" insert into faculty.student values "
-                    + "(?,?,?,?,?,?,?,?,?,?);");
+            PreparedStatement p = con.prepareStatement(" insert into faculty.student (`id`, `first_name`,"
+                    + " `last_name`, `degree_type`, `department`, `dob`, `national_id`, `telephone`, "
+                    + "`email`, `password`) values (?,?,?,?,?,?,?,?,?,?);");
             p.setString(1, username);
             p.setString(2, first_name);
             p.setString(3, last_name);
