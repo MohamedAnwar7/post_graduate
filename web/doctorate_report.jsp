@@ -5,6 +5,8 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="folder.connectionDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="obj" scope="session" class="folder.Data"></jsp:useBean>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
@@ -161,7 +163,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <form action="staff_home.jsp" method="">
-                                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th></th>
@@ -219,8 +221,14 @@
                         </div>
                     </div>
                 </div>
+                <%
+                    if (obj.getId().contains("Staff")) { %>
                 <input type="submit" class="btn btn-primary bg-success" name="submit" value="ارسال الى الدكتور" >
                 </form>
+                <% } else {
+                        System.out.print("Dr");
+                    }%>
+
 
                 <!-- /.container-fluid -->
 

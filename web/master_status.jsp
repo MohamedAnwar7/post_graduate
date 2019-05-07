@@ -39,7 +39,7 @@
                         p.setString(1, cc);
                         p.setString(2, rs.getString("national_id"));
                         p.executeUpdate();
-                        System.out.println("added in master");
+                        System.out.println("status is done in master");
 
                     }
                     count++;

@@ -1,5 +1,4 @@
-<%@page import="java.time.LocalDateTime"%>
-<%@page import="java.time.format.DateTimeFormatter"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="obj" scope="session" class="folder.Data"></jsp:useBean>
     <!DOCTYPE html>
@@ -109,53 +108,104 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="available_course.jsp">
+                        <a class="nav-link" href="doctorate.jsp">
                             <i class="far fa-plus-square"></i>
-                            <span>اختيار مقررات</span></a>
+                            <span>التسجيل للدكتوراه</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="current_course.jsp">
+                        <a class="nav-link" href="master.jsp">
                             <i class="far fa-plus-square"></i>
-                            <span>عرض المقررات</span></a>
+                            <span>التسجيل للماجستير</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="previous_course.jsp">
+                        <a class="nav-link" href="diploma.jsp">
                             <i class="far fa-plus-square"></i>
-                            <span>عرض المقررات السابقة</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="redo_course.jsp">
-                            <i class="far fa-plus-square"></i>
-                            <span>عرض مقررات الدور الثاني</span></a>
+                            <span>التسجيل للدبلومة</span></a>
                     </li>
 
 
-                </ul>
 
-                <div id="content-wrapper">
 
-                    <div class="container-fluid">
+                <%if (obj.getStatus().equals("مطابق للشروط")) {%>
+                <li class="nav-item">
+                    <a class="nav-link" href="current_course.jsp">
+                        <i class="far fa-plus-square"></i>
+                        <span>عرض المقررات</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="previous_course.jsp">
+                        <i class="far fa-plus-square"></i>
+                        <span>عرض المقررات السابقة</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="redo_course.jsp">
+                        <i class="far fa-plus-square"></i>
+                        <span> مقررات الدور الثاني</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="available_course.jsp">
+                        <i class="far fa-plus-square"></i>
+                        <span>اختيار مقررات</span></a>
+                </li>
 
-                        <!-- Breadcrumbs-->
-                        <ol class="breadcrumb bg-white">
-                            <li class="breadcrumb-item">
-                                <a href="student_home.jsp">لوحة التحكم</a>
-                            </li>
-                            <li class="breadcrumb-item active">نبذه عامة</li>
-                        </ol>
+                <% } else {
+                        System.out.print("refused");
+                    } %>
 
-                        <!-- Icon Cards-->
-                    <%
-                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM");
-                        LocalDateTime now = LocalDateTime.now();
-                        System.out.println(obj.getStatus() + "  status");
-                        System.out.println(obj.getNational_id() + "  00");
 
-                        if (dtf.format(now).equals("05") || dtf.format(now).equals("10")) {
-                            if (obj.getStatus().equals("مطابق للشروط")) {
 
-                    %>
+
+
+            </ul>
+
+            <div id="content-wrapper">
+
+                <div class="container-fluid">
+
+                    <!-- Breadcrumbs-->
+                    <ol class="breadcrumb bg-white">
+                        <li class="breadcrumb-item">
+                            <a href="student_home.jsp">لوحة التحكم</a>
+                        </li>
+                        <li class="breadcrumb-item active">نبذه عامة</li>
+                    </ol>
+
+                    <!-- Icon Cards-->
+
                     <div class="row">
+
+                        <div class="col-xl-3 col-sm-6 mb-3">
+                            <div class="card text-white badge-danger noradius o-hidden h-100">
+                                <div class="card-body">
+                                    <div class="card-body-icon">
+                                        <i class="fas fa-book-open"></i>
+                                    </div>
+                                    <div class="mr-5">التسجيل للدراسات العليا</div>
+                                </div>
+                                <a class="card-footer text-white clearfix small z-1" href="doctorate.jsp">
+                                    <span class="float-left">
+                                        <i class="fas fa-angle-left"></i>
+                                    </span>
+                                    <span class="float-right">التسجيل للدكتوراه</span>
+                                </a>
+                                <a class="card-footer text-white clearfix small z-1" href="master.jsp">
+                                    <span class="float-left">
+                                        <i class="fas fa-angle-left"></i>
+                                    </span>
+                                    <span class="float-right">التسجيل للماجستير</span>
+                                </a>
+                                <a class="card-footer text-white clearfix small z-1" href="diploma.jsp">
+                                    <span class="float-left">
+                                        <i class="fas fa-angle-left"></i>
+                                    </span>
+                                    <span class="float-right">التسجيل للدبلومة</span>
+                                </a>
+                            </div>
+                        </div>
+                        <%
+                            if (obj.getStatus().equals("مطابق للشروط")) {
+                        %> 
+                        <div class="col-md-12 alert alert-success" role="alert"> تم قبول طلبك بنجاح</div>
                         <div class="col-xl-3 col-sm-6 mb-3">
                             <div class="card text-white badge-danger noradius o-hidden h-100">
                                 <div class="card-body">
@@ -191,47 +241,10 @@
                             </div>
                         </div>
                     </div>
+                   <%}else { %>
+                    <div class ="col-md-12 alert alert-danger"  role="alert">لم يتم قبولك بعد </div> 
+                    <% }%>
 
-                    <%} else {
-                                System.out.print("not accepted");
-                            }
-                        } else {
-                            System.out.print("closed");
-                        }%>
-
-
-                    <div class="row">
-                        <div class="col-xl-3 col-sm-6 mb-3">
-                            <div class="card text-white badge-danger noradius o-hidden h-100">
-
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-book-open"></i>
-                                    </div>
-                                    <div class="mr-5">التسجيل للدراسات العليا</div>
-                                </div>
-                                <a class="card-footer text-white clearfix small z-1" href="doctorate.jsp">
-                                    <span class="float-left">
-                                        <i class="fas fa-angle-left"></i>
-                                    </span>
-                                    <span class="float-right">التسجيل للدكتوراه</span>
-                                </a>
-                                <a class="card-footer text-white clearfix small z-1" href="master.jsp">
-                                    <span class="float-left">
-                                        <i class="fas fa-angle-left"></i>
-                                    </span>
-                                    <span class="float-right">التسجيل للماجستير</span>
-                                </a>
-                                <a class="card-footer text-white clearfix small z-1" href="diploma.jsp">
-                                    <span class="float-left">
-                                        <i class="fas fa-angle-left"></i>
-                                    </span>
-                                    <span class="float-right">التسجيل للدكتوراه</span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
 
                     <!-- /.container-fluid -->
 

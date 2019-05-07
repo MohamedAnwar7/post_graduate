@@ -231,11 +231,11 @@
                             %> 
                         </table>
                         
-                    </form>
 
                             </div>
                         <br>
                         <input type="submit" class="btn btn-primary" name="submit" value="تقييم" >
+                    </form>
 
                         </div>
                     </div>

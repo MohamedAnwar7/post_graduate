@@ -16,9 +16,11 @@
 <%@page import="java.util.logging.Level"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
+<jsp:useBean id="obj" scope="session" class="folder.Data"></jsp:useBean>
 
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
+
+    <!DOCTYPE html>
+    <html lang="en" dir="rtl">
     <% request.setCharacterEncoding("utf-8"); %>
     <head>
 
@@ -173,7 +175,7 @@
                             <div class="table-responsive">
                                 <form action="staff_home.jsp" method="">
 
-                                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th></th>
@@ -198,10 +200,10 @@
                                                 PreparedStatement ps = con.prepareStatement(SQL);
                                                 ResultSet rs = ps.executeQuery();
                                         %>
-                                        <%!
+                                        <%!                                            
                                             int counter = 0;
-
-                                        %>  
+                                            
+                                                                                                                                                                                                                                                                    %>  
                                         <% while (rs.next()) {
                                                 counter++;
                                         %>
@@ -222,7 +224,7 @@
                                         </tbody>
                                         <%
                                                 }
-
+                                                
                                             } catch (ClassNotFoundException ex) {
                                                 Logger.getLogger(connectionDB.class.getName()).log(Level.SEVERE, null, ex);
                                             }
@@ -232,8 +234,13 @@
                         </div>
                     </div>
                 </div>
+                <%  
+                    if (obj.getId().contains("Staff")) { %>
                 <input type="submit" class="btn btn-primary bg-success" name="submit" value="ارسال الى الدكتور" >
                 </form>
+                <% } else {
+                        System.out.print("Dr");
+                    }%>
                 <!-- /.container-fluid -->
 
                 <!-- Sticky Footer -->
