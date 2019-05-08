@@ -30,6 +30,7 @@
 
             String username = (request.getParameter("username"));
             System.out.print(username + " is entered!");
+            
             if (!username.isEmpty() && !request.getParameter("password").isEmpty()) {
                 try {
                     connectionDB c = new connectionDB();
