@@ -282,7 +282,7 @@
                         <div class="modal-body">اضغط "تسجيل الخروج" اذا كنت مستعدا للخروج</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">الغاء</button>
-                            <a class="btn btn-primary" href="main.jsp">تسجيل الخروج</a>
+                            <a class="btn btn-primary" href="sign_out.jsp">تسجيل الخروج</a>
                         </div>
                     </div>
                 </div>
