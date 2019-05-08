@@ -21,14 +21,6 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="main.jsp">الصفحة الرئيسية</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">اعضاء هيئة التدريس</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">TODO</a>
-                        <a class="dropdown-item" href="#">TODO</a>
-                        <a class="dropdown-item" href="#">TODO</a>
-                    </div>
-                </li>
                
                 <li class="nav-item"><a class="nav-link" href="terms.jsp">شروط التقديم</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">اتصل بنا</a></li>
